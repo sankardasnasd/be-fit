@@ -1,0 +1,34 @@
+{% extends 'user/home_index.html' %}
+{% block body %}
+
+<body><form action="/myapp/vufeedback_post/" method="post"><table class="px pull-left">
+    {% csrf_token %}
+  <tr>
+    <th style="color: black">From</th>
+    <th>
+      <input type="date" name="textfield" id="textfield" class="form-control" required /></td>
+    <th style="color: black">To</th>
+    <th>
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    <td width="151"><input type="submit" name="search" id="search" value="Search" class="btn btn-success"/></td>
+  </tr>
+</table><br><br><table class="table table-bordered table-striped">
+  <tr>
+    <th style="color: black">Sno</th>
+    <th style="color: black">Username</th>
+    <th style="color: black">Feedback</th>
+    <th style="color: black">Date</th>
+  </tr>
+{% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.user.name }}</td>
+    <td>{{ i.feedbacks }}</td>
+    <td>{{ i.date }}</td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'user/home_index.html' %}
+{% block body %}
+
+<body><form action="post" method="get"> <table class="table table-bordered table-striped">
+  <tr>
+    <th style="color: black">Photo</th>
+    <th>&nbsp;<img src="{{ res.photo }}" alt=""height="200px"width="200px"> </th>
+  </tr>
+  <tr>
+    <th style="color: black">Name</th>
+    <th>&nbsp;{{ res.name }}</th>
+  </tr>
+  <tr>
+    <th style="color: black">Registered Email id</th>
+    <th>&nbsp;{{ res.email }}</th>
+  </tr>
+  <tr>
+    <th style="color: black">Registered Phone No</th>
+    <th >&nbsp;{{ res.phone }}</th>
+  </tr>
+  <tr>
+    <th style="color: black">Dob</th>
+    <th> {{ res.dob }}</th>
+  </tr>
+  <tr>
+    <th style="color: black">Address</th>
+    <th>{{ res.place }} <br>{{ res.pin }}<br>{{ res.district }}</th>
+  </tr>
+  <tr>
+    <th style="color: black">Gender</th>
+    <th>{{ res.gender }}</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <th><a href="/myapp/ueditprofile/" class="btn btn-info">Edit Profile</a></th>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

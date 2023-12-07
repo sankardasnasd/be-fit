@@ -1,0 +1,37 @@
+{% extends 'vendors/home_index.html' %}
+{% block body %}
+
+
+<body><form action="/myapp/vproduct_post/" method="post"><table class="px pull-left">
+    {% csrf_token %}
+  <tr>
+    <th>
+      <input type="text" name="textfield" id="textfield" class="form-control" /></th>
+    <td><input type="submit" name="search" id="search" value="Search" class="btn btn-success"/></td>
+  </tr>
+</table><br><br>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th style="color: black">S.no</td>
+      <th style="color: black">Name</td>
+      <th style="color: black">Photo</td>
+      <th style="color: black">Description</td>
+      <th style="color: black">Price</td>
+      <th colspan="2" style="color: black">Manage Product</td>
+      <th style="color: black">Review</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.name }}</td>
+      <td><img src="{{ i.photo }}" alt=""height="100px" width="100px"/></td>
+      <td>&nbsp;{{ i.description }}</td>
+      <td>&nbsp;{{ i.price }}</td>
+        <td><a href="/myapp/edit_product/{{ i.id }}" class="btn btn-info">Edit</a></td><td>  <a href="/myapp/deleteproduct/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are You Sure?')">Delete</a></td>
+      <td><a href="/myapp/vfeedback/{{ i.id }}" class="btn btn-info">Feedback</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

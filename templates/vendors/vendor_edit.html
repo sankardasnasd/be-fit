@@ -1,0 +1,71 @@
+{% extends 'vendors/home_index.html' %}
+{% block body %}
+
+
+
+<body><form action="/myapp/editprofile_post/"  enctype="multipart/form-data" method="post"><table class="table table-bordered table-striped">
+    {% csrf_token %}
+  <tr>
+    <th style="color: black">Name</td>
+    <th>
+      <input type="text"  value="{{ res.name }}" name="textfield" id="textfield" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th style="color: black">Email</th>
+    <td>
+      <input type="text" value="{{ res.email }}" name="textfield2" id="textfield2" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th style="color: black">Phone</th>
+    <td>
+      <input type="text" value="{{ res.phone }}" name="textfield3" id="textfield3" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th style="color: black">Photo</th>
+    <td><label for="textfield4"></label>
+        <img src="{{ res.photo }}" height="80px" width="80px">
+      <input type="file" name="textfield4" id="textfield4" class="form-control" /></td>
+  </tr>
+  <tr>
+    <th style="color: black">Gender</th>
+    <td><p>
+      <label>
+        <input type="radio" {% if res.gender == 'Male' %}checked{% endif %}  name="RadioGroup1" value="Male" id="RadioGroup1_0" />
+        Male
+</label>
+      <br />
+      <label>
+        <input type="radio" {% if res.gender == 'Female' %}checked{% endif %} name="RadioGroup1" value="Female" id="RadioGroup1_1" />
+        Female
+</label>
+      <br />
+      <label>
+        <input type="radio" {% if res.gender == 'Others' %}checked{% endif %} name="RadioGroup1" value="Others" id="RadioGroup1_2" />
+        Other</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th style="color: black">Place</th>
+    <td>
+      <input type="text" value="{{ res.place }}" name="textfield5" id="textfield5" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <th style="color: black">District</th>
+    <td>
+      <input type="text" value="{{ res.district }}" name="textfield6" id="textfield6" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th style="color: black">Pin</th>
+    <td>
+      <input type="text" value="{{ res.pin }}" name="textfield7" id="textfield7" class="form-control" required/></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="submit" id="submit" value="Submit" class="btn btn-success" /></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

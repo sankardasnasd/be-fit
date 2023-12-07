@@ -1,0 +1,25 @@
+{% extends 'instructor/home_index.html' %}
+{% block body %}
+
+<body><form action="/myapp/edit_inst_post/" enctype="multipart/form-data" method="post"><table class="table table-bordered table-striped">
+    {% csrf_token %}
+  <tr>
+    <th style="color: black">Edit instructions</th>
+    <td width="399"><input type="hidden" value="{{ data.id }}" name="nid">
+      <textarea name="textarea" id="textarea" class="form-control" cols="45" rows="5"  required>{{ data.inst }}</textarea></td>
+  </tr>
+    <tr>
+    <th style="color: black">Add photo</th>
+    <th width="399">
+        <img src="{{ data.photo }}"alt=""height="200px"width="200px"><br>
+      <input type="file" name="textfield4" placeholder="Photo"  />
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="submit" id="submit" class="btn btn-success" value="Submit" /></td>
+  </tr>
+
+</table>
+</form>
+</body>
+{% endblock %}

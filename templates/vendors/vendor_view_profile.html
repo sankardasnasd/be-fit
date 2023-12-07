@@ -1,0 +1,35 @@
+{% extends 'vendors/home_index.html' %}
+{% block body %}
+<body><form action="" method="post"><table class="table table-bordered table-striped">
+  <tr>
+    <td colspan="2"><img src="{{ res.photo }}" alt=""height="200px"width="200px"/></td>
+  </tr>
+  <tr>
+    <th style="color: black">Name</th>
+    <td>&nbsp;{{ res.name }}</td>
+  </tr>
+  <tr>
+    <th style="color: black">Registered Email</th>
+    <td>&nbsp;{{ res.email }}</td>
+  </tr>
+  <tr>
+    <th style="color: black">Registered Phone No</th>
+    <td>&nbsp;{{ res.phone }}</td>
+  </tr>
+  <tr>
+    <th style="color: black">Gender</th>
+    <td>&nbsp;{{ res.gender }}</td>
+  </tr>
+  <tr >
+    <th style="color: black">Address</th>
+    <td>&nbsp;{{ res.place }} <br> {{ res.district }}<br>{{ res.pin }}</td>
+  </tr>
+<tr>
+    <td colspan="2">
+        <a href="/myapp/editprofile/ " class="btn btn-info">edit profile</a>
+    </td>
+</tr>
+</table>
+</form>
+</body>
+{% endblock %}

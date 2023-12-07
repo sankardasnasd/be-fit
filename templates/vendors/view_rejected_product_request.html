@@ -1,0 +1,39 @@
+{% extends 'vendors/home_index.html' %}
+{% block body %}
+
+
+<body><form action="/myapp/vprequest_post/" method="post"><table class="px pull-left">
+    {% csrf_token %}
+  <tr>
+    <th style="color: black">From</th>
+    <th>
+      <input type="date" name="textfield" id="textfield"class="form-control" required /></th>
+    <th style="color: black">To</td>
+    <th>
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    <td width="329"><input type="submit" name="button" id="button" value="Search" class="btn btn-success"/></td>
+  </tr>
+</table><br><br>
+
+  <table class="table table-bordered table-striped">
+  <tr>
+    <th style="color: black">Sno</td>
+    <th style="color: black">Userid</td>
+    <th style="color: black">Product Name</td>
+    <th style="color: black">Date</td>
+    <t style="color: black"h>Status</td>
+  </tr>
+      {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.userid.name }}</td>
+    <td>{{ i.product.name }}&nbsp;</td>
+    <td>{{ i.date_and_time }}</td>
+      <td>{{ i.status }}</td>
+
+  </tr>
+      {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

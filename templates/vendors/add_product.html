@@ -1,0 +1,34 @@
+{% extends 'vendors/home_index.html' %}
+{% block body %}
+
+<body><form action="/myapp/addproduct_post/" method="post"enctype="multipart/form-data">
+    {% csrf_token %}
+<table class="table table-bordered table-striped">
+  <tr><input type="hidden" name="pid" value="{{ data.id }}">
+    <th style="color: black">Product Name</td>
+    <th>
+      <input type="text" name="textfield" required class="form-control" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th style="color: black">Photo</th>
+    <th>
+      <input type="file" name="textfield2" required class="form-control" id="textfield2" /></th>
+  </tr>
+  <tr>
+    <th style="color: black">Description</th>
+    <th>
+      <textarea name="textarea" id="textarea" required class="form-control" cols="45" rows="5"></textarea></th>
+  </tr>
+  <tr>
+    <th style="color: black">Price</th>
+    <td>
+      <input type="text" name="textfield3" required class="form-control" id="textfield3" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="submit" class="btn btn-success" lid="submit" value="Submit" /></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

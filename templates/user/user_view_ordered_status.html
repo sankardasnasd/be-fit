@@ -1,0 +1,36 @@
+{% extends 'user/home_index.html' %}
+{% block body %}
+
+<body><form action="/myapp/uostatus_post/" method="post"><table class="px pull-left">
+    {% csrf_token %}
+  <tr>
+    <th style="color: black">Product Search</th>
+    <th>
+      <input type="text" name="textfield" id="textfield" class="form-control" /></th>
+    <td width="148"><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+  </tr>
+</table><br><br>
+  <p>&nbsp;</p>
+  <table class="table table-bordered table-striped">
+    <tr>
+        <th style="color: black">Sno</th>
+        <th style="color: black">Date</th>
+      <th style="color: black">Product Name</th>
+      <th style="color: black">Status</th>
+      <th style="color: black">Cancel</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date_and_time }}</td>
+        <td>{{ i.product.name }}</td>
+      <td>{{ i.status }}</td>
+
+{#        <td>{% if status == 'pending' %}<a href="/myapp/buyproduct/{{ i.id }}">buy</a>{% else %}{{ i.status }}{% endif %}</td>#}
+      <td><a href="/myapp/ordercancel/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are you sure')">cancel</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
